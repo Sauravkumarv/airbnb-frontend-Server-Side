@@ -1,0 +1,20 @@
+<nav class="bg-blue-500 text-white">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <!-- Brand Name -->
+    <div class="text-lg font-bold">Airbnb</div>
+    <!-- Navigation Links -->
+    <ul class="flex space-x-12">
+      <li>
+        <a href="/host/add-home" class="<%= currentPage==='Add Home' ? 'bg-blue-400':'hover:text-blue-200' %> m-4 py-2 px-4 rounded transition duration-300">Add Home</a>
+      </li>
+      <li>
+        <a
+          href="/"
+          class="<%= currentPage==='Home' ? 'bg-blue-400':'hover:text-blue-200' %> m-4 py-2 px-4 rounded transition duration-300"
+          >Home</a
+        >
+        <!-- Added m-4 here as well -->
+      </li>
+    </ul>
+  </div>
+</nav>
