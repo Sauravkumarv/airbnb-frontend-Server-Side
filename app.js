@@ -1,9 +1,10 @@
 const path=require('path');
 const express=require('express');
 
-const userRouter=require("./routes/userRouter")
+const storeRouter=require("./routes/storeRouter")
 const {hostRouter}=require("./routes/hostRouter");
 const rootDir=require('./utils/pathUtil')
+const errors=require('./controllers/errors')
 
 const app=express();
 
@@ -16,18 +17,14 @@ app.use('/',(req,res,next)=>{
 });
 
 app.use(express.urlencoded());
-app.use(userRouter);
+app.use(storeRouter);
 app.use(hostRouter);
 
 //css path
 app.use(express.static(path.join(rootDir,"public")))
 
 
-app.use((req,res,next)=>{
-  res.status(404).render('404',{
-    pageTitle:'404',currentPage:'404'
-  })
-})
+app.use(errors.pageNotfound)
 
 
 

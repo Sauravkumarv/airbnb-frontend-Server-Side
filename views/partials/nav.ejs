@@ -1,19 +1,27 @@
 <nav class="bg-blue-500 text-white">
   <div class="container mx-auto flex justify-between items-center py-4 px-6">
     <!-- Brand Name -->
-    <div class="text-lg font-bold">Airbnb</div>
+    <div class="text-lg font-bold">
+      <a href="/" class="<%= currentPage==='Index' ? 'bg-blue-400':'hover:text-blue-200' %> py-2 px-4 rounded transition duration-300">
+        Airbnb
+      </a>
+    </div>
     <!-- Navigation Links -->
-    <ul class="flex space-x-12">
+    <ul class="flex items-center space-x-4">
       <li>
-        <a href="/host/add-home" class="<%= currentPage==='Add Home' ? 'bg-blue-400':'hover:text-blue-200' %> m-4 py-2 px-4 rounded transition duration-300">Add Home</a>
+        <a href="/host/add-home" class="<%= currentPage==='Add Home' ? 'bg-blue-400':'hover:text-blue-200' %> py-2 px-4 rounded transition duration-300">Add Home</a>
       </li>
       <li>
-        <a
-          href="/"
-          class="<%= currentPage==='Home' ? 'bg-blue-400':'hover:text-blue-200' %> m-4 py-2 px-4 rounded transition duration-300"
-          >Home</a
-        >
-        <!-- Added m-4 here as well -->
+        <a href="/host/home-list" class="<%= currentPage==='home-list' ? 'bg-blue-400':'hover:text-blue-200' %> py-2 px-4 rounded transition duration-300">Home List</a>
+      </li>
+      <li>
+        <a href="/host/favourite-list" class="<%= currentPage==='favourite-list' ? 'bg-blue-400':'hover:text-blue-200' %> py-2 px-4 rounded transition duration-300">Favourite</a>
+      </li>
+      <li>
+        <a href="/host/bookings" class="<%= currentPage==='bookings' ? 'bg-blue-400':'hover:text-blue-200' %> py-2 px-4 rounded transition duration-300">Bookings</a>
+      </li>
+      <li>
+        <a href="/host/host-home-list" class="<%= currentPage==='host-home-list' ? 'bg-blue-400':'hover:text-blue-200' %> py-2 px-4 rounded transition duration-300">Host Homes</a>
       </li>
     </ul>
   </div>

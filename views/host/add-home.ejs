@@ -1,9 +1,9 @@
-<%- include('partials/head') %>
+<%- include('../partials/head') %>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Navigation -->
- <%- include('partials/nav')%>
+ <%- include('../partials/nav')%>
   <!-- Header -->
   <header class="bg-white shadow-md py-8">
     <div class="container mx-auto text-center">
@@ -15,7 +15,7 @@
   <main class="container mx-auto my-8 p-6 bg-white shadow-md rounded-lg">
     <form action="/host/add-home" method="post" class="space-y-4">
       <div>
-        <label for="houseName" class="block text-lg font-medium">House Name</label>
+        <label for="houseName" class="block text-lg font-medium"></label>
         <input 
           type="text" 
           id="houseName" 
@@ -53,12 +53,11 @@
       >
       </div>
       <div>
-        <button 
-          type="submit" 
+        <input type="submit"
+        value="<%= editing?"Update Home":"Add Home"%>"
+          
           class="bg-blue-500 text-white font-bold py-2 px-6 rounded-md hover:bg-blue-600"
         >
-          Submit
-        </button>
       </div>
     </form>
   </main>

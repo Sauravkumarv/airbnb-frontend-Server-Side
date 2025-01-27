@@ -1,29 +1,22 @@
-const path=require('path');
+const path = require("path");
 
-const express=require('express');
-const hostRouter=express.Router();
-const rootDir=require('../utils/pathUtil')
+const express = require("express");
+const hostRouter = express.Router();
+const rootDir = require("../utils/pathUtil");
+
+const addHome = require("../controllers/hostController");
+
+hostRouter.get("/host/add-home", addHome.getAddHome);
 
 
+hostRouter.post("/host/add-home", addHome.postAddHome);
 
-
-hostRouter.get('/host/add-home',(req,res,next)=>{
-  res.render('add-home',{pageTitle:'Add-Home',currentPage:'Add Home'});
-})
-
-const registeredHomes=[];
-
-hostRouter.post('/host/add-home',(req,res,next)=>{
-  console.log("Home registration successful for:",req.body);
-  registeredHomes.push(req.body);
-  res.render('home-added',{
-    pageTitle:'Home Added Successfully',currentPage:'Home Added'
-  })
-})
+hostRouter.get("/host/host-home-list",addHome.gethosthomelist);
+hostRouter.get("/host/edit-home/:homeId",
+addHome.gethostedithomelist);
+hostRouter.post("/host/edit-home",addHome.postEditHome);
+hostRouter.post("/host/delete-home/:homeId",addHome.postDeleteHome);
 
 
 
-
-
-exports.hostRouter=hostRouter;
-exports.registeredHomes=registeredHomes;
+exports.hostRouter = hostRouter;

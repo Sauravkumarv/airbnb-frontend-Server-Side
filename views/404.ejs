@@ -1,20 +1,24 @@
 <%- include('partials/head') %>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans flex items-center justify-center min-h-screen">
-  <%- include('partials/nav')%>
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <%- include('partials/nav') %>
 
-  <div class="text-center">
-    <header class="mb-6">
-      <h1 class="text-6xl font-bold text-red-600">404</h1>
-      <p class="text-xl text-gray-600">Page Not Found</p>
-    </header>
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center">
+    <div class="text-center">
+      <header class="mb-6">
+        <h1 class="text-6xl font-bold text-red-600">404</h1>
+        <p class="text-xl text-gray-600">Page Not Found</p>
+      </header>
 
-    <p class="mb-4 text-lg">Oops! The page you are looking for doesn't exist.</p>
+      <p class="mb-4 text-lg">Oops! The page you are looking for doesn't exist.</p>
 
-    <!-- Navigation Button -->
-    <a href="/" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-      Go to Home
-    </a>
-  </div>
+      <!-- Navigation Button -->
+      <a href="/" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        Go to Home
+      </a>
+    </div>
+  </main>
 </body>
 </html>
