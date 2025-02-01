@@ -27,9 +27,9 @@
             <p class="text-gray-600"><strong>Location:</strong> <%= home.location %></p>
             <p class="text-gray-600"><strong>Rating:</strong> <%= home.rating %> ★</p>
           </div>
-          <button class="p-2 bg-blue-600 rounded w-full text-white" ><a href="/host/edit-home/<%=home.id%>?editing=true " >Edit</a></button>
+          <button class="p-2 bg-blue-600 rounded w-full text-white" ><a href="/host/edit-home/<%=home._id%>?editing=true " >Edit</a></button>
 
-          <form action="/host/delete-home/<%=home.id%>" method="POST">
+          <form action="/host/delete-home/<%=home._id%>" method="POST">
             <button type="submit" class="p-2 bg-red-600 rounded w-full text-white" >Delete</button>
 
           </form>

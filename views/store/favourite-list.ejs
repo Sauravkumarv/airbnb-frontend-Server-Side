@@ -18,7 +18,7 @@
             <div 
               class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
-              <p class="text-white text-lg font-semibold cursor-pointer"><a href="/home/<%=home.id%>">View Details</a></p>
+              <p class="text-white text-lg font-semibold cursor-pointer"><a href="/home/<%=home._id%>">View Details</a></p>
             </div>
           </div>
           <div class="p-6">
@@ -27,7 +27,7 @@
             <p class="text-gray-600"><strong>Location:</strong> <%= home.location %></p>
             <p class="text-gray-600"><strong>Rating:</strong> <%= home.rating %> ★</p>
           </div>
-          <form action="/host/remove-favourite/<%=home.id%>" method="POST">
+          <form action="/host/remove-favourite/<%=home._id%>" method="POST">
             <button type="submit" class="p-2 bg-red-600 rounded w-full text-white" >Remove</button>
 
           </form>

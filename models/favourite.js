@@ -1,42 +1,35 @@
-const fs=require('fs');
-const path=require('path')
-const rootDir=require('../utils/pathUtil');
-const { error } = require('console');
+const { getDB } = require("../utils/database");
 
-
-const favouriteDataPath=path.join(rootDir,"data","favourite.json")
-
-//fake database
-// const registeredHomes = [];
-
-
-module.exports=class Favourite{
-  static addToFavourite(id,callback){
-    Favourite.getFavourite((favourite) => {
-      favourite.push(this);
-
-      if(favourite.includes(id)){
-       callback("Home is already marked favourite")
-      }else{
-        favourite.push(id);
-         fs.writeFile(favouriteDataPath, JSON.stringify(favourite),callback) 
-        
-          }
-
-     
-    });
-  }
-  static getFavourite(callback){
-    fs.readFile(favouriteDataPath,(err,data)=>{
-      
-      callback(!err?JSON.parse(data):[]);
-    })
+module.exports = class Favourite {
+  constructor(houseid){
+    this.houseid=houseid;
   }
 
-  static deleteById(delHomeId,callback){
-    Favourite.getFavourite(homesIds=>{
-       homesIds=homesIds.filter(homeId=>delHomeId !==homeId);
-      fs.writeFile(favouriteDataPath,JSON.stringify(homesIds),callback)
-    })
+save(){
+  const db=getDB();
+
+  return db.collection('favourite').findOne({houseid:this.houseid}).then(existingFav=>{
+    if(!existingFav){
+      return db.collection('favourite').insertOne(this);
+    }
+    return  Promise.resolve();
+})
+ 
+}
+
+  
+  // Get all favourite homes
+  static getFavourite() {
+   
+      const db=getDB();
+  return db.collection('favourite').find().toArray();
+    }
+  
+
+  // Delete a home from favourites by its ID
+  static deleteById(delhomeid) {
+    const db=getDB();
+    return db.collection('favourite')
+    .deleteOne({houseid:delhomeid});
   }
 };

@@ -5,6 +5,12 @@ const storeRouter=require("./routes/storeRouter")
 const {hostRouter}=require("./routes/hostRouter");
 const rootDir=require('./utils/pathUtil')
 const errors=require('./controllers/errors')
+const {mongoConnect}=require("./utils/database")
+
+
+
+
+
 
 const app=express();
 
@@ -29,6 +35,8 @@ app.use(errors.pageNotfound)
 
 
 const port=4010;
-app.listen(port,()=>{
-  console.log(`Your server is connected to http://localhost:${port}`)
+mongoConnect(()=>{
+  app.listen(port,()=>{
+    console.log(`Your server is connected to http://localhost:${port}`)
+  })
 })
